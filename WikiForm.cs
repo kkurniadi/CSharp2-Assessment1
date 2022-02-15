@@ -130,15 +130,13 @@ namespace AssessmentOne
         {
             try
             {
-                using (BinaryWriter bw = new BinaryWriter(new FileStream(fileName, FileMode.Create)))
+                using BinaryWriter bw = new(new FileStream(fileName, FileMode.Create));
+                SortArray();
+                for (int x = 0; x < pointer; x++)
                 {
-                    SortArray();
-                    for (int x = 0; x < pointer; x++)
+                    for (int y = 0; y < attributes; y++)
                     {
-                        for (int y = 0; y < attributes; y++)
-                        {
-                            bw.Write(wikiData[x, y]);
-                        }
+                        bw.Write(wikiData[x, y]);
                     }
                 }
             }
@@ -153,19 +151,17 @@ namespace AssessmentOne
             int x = 0;
             try
             {
-                using (BinaryReader br = new BinaryReader(new FileStream(fileName, FileMode.Open)))
+                using BinaryReader br = new(new FileStream(fileName, FileMode.Open));
+                while (br.BaseStream.Position != br.BaseStream.Length)
                 {
-                    while (br.BaseStream.Position != br.BaseStream.Length)
+                    for (int y = 0; y < attributes; y++)
                     {
-                        for (int y = 0; y < attributes; y++)
-                        {
-                            wikiData[x, y] = br.ReadString();
-                        }
-                        x++;
+                        wikiData[x, y] = br.ReadString();
                     }
-                    pointer = x;
-                    DisplayNameCat();
+                    x++;
                 }
+                pointer = x;
+                DisplayNameCat();
             }
             catch (IOException ex)
             {
