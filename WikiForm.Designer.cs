@@ -50,7 +50,7 @@
             this.ButtonAdd.TabIndex = 0;
             this.ButtonAdd.Text = "Add";
             this.ButtonAdd.UseVisualStyleBackColor = true;
-            this.ButtonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // ButtonEdit
             // 
