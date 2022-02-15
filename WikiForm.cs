@@ -153,11 +153,21 @@ namespace AssessmentOne
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            int x = 0;
             try
             {
                 using (BinaryReader br = new BinaryReader(new FileStream(fileName, FileMode.Open)))
                 {
-
+                    while (br.BaseStream.Position != br.BaseStream.Length)
+                    {
+                        for (int y = 0; y < attributes; y++)
+                        {
+                            wikiData[x, y] = br.ReadString();
+                        }
+                        x++;
+                    }
+                    pointer = x;
+                    DisplayData();
                 }
             }
             catch (IOException ex)
