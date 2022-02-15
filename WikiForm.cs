@@ -23,7 +23,7 @@ namespace AssessmentOne
         int pointer = 0;
         string[,] wikiData = new string[entries, attributes];
 
-        private void DisplayData()
+        private void DisplayNameCat()
         {
             ListBoxDisplay.Items.Clear();
             for (int x = 0; x < entries; x++)
@@ -56,7 +56,7 @@ namespace AssessmentOne
                     MessageBox.Show("Nobody wants any more data structures to define");
                 }
             }
-            DisplayData();
+            DisplayNameCat();
         }
 
         private void ClearBoxes()
@@ -117,10 +117,7 @@ namespace AssessmentOne
             }
             if (found)
             {
-                TextBoxName.Text = wikiData[foundIndex, 0];
-                TextBoxCategory.Text = wikiData[foundIndex, 1];
-                TextBoxStructure.Text = wikiData[foundIndex, 2];
-                TextBoxDefinition.Text = wikiData[foundIndex, 3];
+                DisplayInfo(foundIndex);
             }
             else
             {
@@ -167,13 +164,22 @@ namespace AssessmentOne
                         x++;
                     }
                     pointer = x;
-                    DisplayData();
+                    DisplayNameCat();
                 }
             }
             catch (IOException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void DisplayInfo(int x)
+        {
+            ClearBoxes();
+            TextBoxName.Text = wikiData[x, 0];
+            TextBoxCategory.Text = wikiData[x, 1];
+            TextBoxStructure.Text = wikiData[x, 2];
+            TextBoxDefinition.Text = wikiData[x, 3];
         }
     }
 }
