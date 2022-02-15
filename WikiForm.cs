@@ -195,5 +195,24 @@ namespace AssessmentOne
         {
             TextBoxSearch.Clear();
         }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDisplay.SelectedItem == null)
+            {
+                if (HasAllInfo(TextBoxName) && HasAllInfo(TextBoxCategory) && HasAllInfo(TextBoxStructure) && HasAllInfo(TextBoxCategory))
+                {
+
+                }
+            }
+        }
+
+        private bool HasAllInfo(TextBox t)
+        {
+            if (!string.IsNullOrEmpty(t.Text))
+                return true;
+            else
+                return false;
+        }
     }
 }
