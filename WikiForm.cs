@@ -181,5 +181,23 @@ namespace AssessmentOne
             TextBoxStructure.Text = wikiData[x, 2];
             TextBoxDefinition.Text = wikiData[x, 3];
         }
+
+        private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ListBoxDisplay.SetSelected(ListBoxDisplay.SelectedIndex, true);
+                DisplayInfo(ListBoxDisplay.SelectedIndex);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
+        {
+            TextBoxSearch.Clear();
+        }
     }
 }

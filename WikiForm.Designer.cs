@@ -109,6 +109,7 @@
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(190, 23);
             this.TextBoxSearch.TabIndex = 7;
+            this.TextBoxSearch.DoubleClick += new System.EventHandler(this.TextBoxSearch_DoubleClick);
             // 
             // ListBoxDisplay
             // 
@@ -118,6 +119,7 @@
             this.ListBoxDisplay.Name = "ListBoxDisplay";
             this.ListBoxDisplay.Size = new System.Drawing.Size(287, 214);
             this.ListBoxDisplay.TabIndex = 8;
+            this.ListBoxDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxDisplay_MouseClick);
             // 
             // ButtonOpen
             // 
