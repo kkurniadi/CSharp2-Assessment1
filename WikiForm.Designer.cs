@@ -28,144 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxCategory = new System.Windows.Forms.TextBox();
-            this.textBoxStructure = new System.Windows.Forms.TextBox();
-            this.textBoxDefinition = new System.Windows.Forms.TextBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.listBoxDisplay = new System.Windows.Forms.ListBox();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.ButtonAdd = new System.Windows.Forms.Button();
+            this.ButtonEdit = new System.Windows.Forms.Button();
+            this.ButtonDelete = new System.Windows.Forms.Button();
+            this.TextBoxName = new System.Windows.Forms.TextBox();
+            this.TextBoxCategory = new System.Windows.Forms.TextBox();
+            this.TextBoxStructure = new System.Windows.Forms.TextBox();
+            this.TextBoxDefinition = new System.Windows.Forms.TextBox();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.ListBoxDisplay = new System.Windows.Forms.ListBox();
+            this.ButtonOpen = new System.Windows.Forms.Button();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.ButtonSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonAdd
+            // ButtonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(18, 23);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.ButtonAdd.Location = new System.Drawing.Point(18, 23);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.ButtonAdd.TabIndex = 0;
+            this.ButtonAdd.Text = "Add";
+            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // buttonEdit
+            // ButtonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(99, 23);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
-            this.buttonEdit.TabIndex = 1;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.ButtonEdit.Location = new System.Drawing.Point(99, 23);
+            this.ButtonEdit.Name = "ButtonEdit";
+            this.ButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.ButtonEdit.TabIndex = 1;
+            this.ButtonEdit.Text = "Edit";
+            this.ButtonEdit.UseVisualStyleBackColor = true;
             // 
-            // buttonDelete
+            // ButtonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(180, 23);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 2;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.ButtonDelete.Location = new System.Drawing.Point(180, 23);
+            this.ButtonDelete.Name = "ButtonDelete";
+            this.ButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.ButtonDelete.TabIndex = 2;
+            this.ButtonDelete.Text = "Delete";
+            this.ButtonDelete.UseVisualStyleBackColor = true;
             // 
-            // textBoxName
+            // TextBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(18, 68);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.PlaceholderText = "Name";
-            this.textBoxName.Size = new System.Drawing.Size(237, 23);
-            this.textBoxName.TabIndex = 3;
+            this.TextBoxName.Location = new System.Drawing.Point(18, 68);
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.PlaceholderText = "Name";
+            this.TextBoxName.Size = new System.Drawing.Size(237, 23);
+            this.TextBoxName.TabIndex = 3;
             // 
-            // textBoxCategory
+            // TextBoxCategory
             // 
-            this.textBoxCategory.Location = new System.Drawing.Point(18, 106);
-            this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.PlaceholderText = "Category";
-            this.textBoxCategory.Size = new System.Drawing.Size(237, 23);
-            this.textBoxCategory.TabIndex = 4;
+            this.TextBoxCategory.Location = new System.Drawing.Point(18, 106);
+            this.TextBoxCategory.Name = "TextBoxCategory";
+            this.TextBoxCategory.PlaceholderText = "Category";
+            this.TextBoxCategory.Size = new System.Drawing.Size(237, 23);
+            this.TextBoxCategory.TabIndex = 4;
             // 
-            // textBoxStructure
+            // TextBoxStructure
             // 
-            this.textBoxStructure.Location = new System.Drawing.Point(18, 146);
-            this.textBoxStructure.Name = "textBoxStructure";
-            this.textBoxStructure.PlaceholderText = "Structure";
-            this.textBoxStructure.Size = new System.Drawing.Size(237, 23);
-            this.textBoxStructure.TabIndex = 5;
+            this.TextBoxStructure.Location = new System.Drawing.Point(18, 146);
+            this.TextBoxStructure.Name = "TextBoxStructure";
+            this.TextBoxStructure.PlaceholderText = "Structure";
+            this.TextBoxStructure.Size = new System.Drawing.Size(237, 23);
+            this.TextBoxStructure.TabIndex = 5;
             // 
-            // textBoxDefinition
+            // TextBoxDefinition
             // 
-            this.textBoxDefinition.Location = new System.Drawing.Point(18, 184);
-            this.textBoxDefinition.Multiline = true;
-            this.textBoxDefinition.Name = "textBoxDefinition";
-            this.textBoxDefinition.PlaceholderText = "Definition";
-            this.textBoxDefinition.Size = new System.Drawing.Size(237, 132);
-            this.textBoxDefinition.TabIndex = 6;
+            this.TextBoxDefinition.Location = new System.Drawing.Point(18, 184);
+            this.TextBoxDefinition.Multiline = true;
+            this.TextBoxDefinition.Name = "TextBoxDefinition";
+            this.TextBoxDefinition.PlaceholderText = "Definition";
+            this.TextBoxDefinition.Size = new System.Drawing.Size(237, 132);
+            this.TextBoxDefinition.TabIndex = 6;
             // 
-            // textBoxSearch
+            // TextBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(302, 24);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(190, 23);
-            this.textBoxSearch.TabIndex = 7;
+            this.TextBoxSearch.Location = new System.Drawing.Point(302, 24);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(190, 23);
+            this.TextBoxSearch.TabIndex = 7;
             // 
-            // listBoxDisplay
+            // ListBoxDisplay
             // 
-            this.listBoxDisplay.FormattingEnabled = true;
-            this.listBoxDisplay.ItemHeight = 15;
-            this.listBoxDisplay.Location = new System.Drawing.Point(286, 68);
-            this.listBoxDisplay.Name = "listBoxDisplay";
-            this.listBoxDisplay.Size = new System.Drawing.Size(287, 214);
-            this.listBoxDisplay.TabIndex = 8;
+            this.ListBoxDisplay.FormattingEnabled = true;
+            this.ListBoxDisplay.ItemHeight = 15;
+            this.ListBoxDisplay.Location = new System.Drawing.Point(286, 68);
+            this.ListBoxDisplay.Name = "ListBoxDisplay";
+            this.ListBoxDisplay.Size = new System.Drawing.Size(287, 214);
+            this.ListBoxDisplay.TabIndex = 8;
             // 
-            // buttonOpen
+            // ButtonOpen
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(286, 293);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 23);
-            this.buttonOpen.TabIndex = 9;
-            this.buttonOpen.Text = "Open";
-            this.buttonOpen.UseVisualStyleBackColor = true;
-            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            this.ButtonOpen.Location = new System.Drawing.Point(286, 293);
+            this.ButtonOpen.Name = "ButtonOpen";
+            this.ButtonOpen.Size = new System.Drawing.Size(75, 23);
+            this.ButtonOpen.TabIndex = 9;
+            this.ButtonOpen.Text = "Open";
+            this.ButtonOpen.UseVisualStyleBackColor = true;
+            this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
             // 
-            // buttonSave
+            // ButtonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(367, 293);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 10;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.ButtonSave.Location = new System.Drawing.Point(367, 293);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSave.TabIndex = 10;
+            this.ButtonSave.Text = "Save";
+            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
-            // buttonSearch
+            // ButtonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(498, 24);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 11;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.ButtonSearch.Location = new System.Drawing.Point(498, 24);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Size = new System.Drawing.Size(75, 23);
+            this.ButtonSearch.TabIndex = 11;
+            this.ButtonSearch.Text = "Search";
+            this.ButtonSearch.UseVisualStyleBackColor = true;
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // WikiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 342);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonOpen);
-            this.Controls.Add(this.listBoxDisplay);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.textBoxDefinition);
-            this.Controls.Add(this.textBoxStructure);
-            this.Controls.Add(this.textBoxCategory);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.ButtonSearch);
+            this.Controls.Add(this.ButtonSave);
+            this.Controls.Add(this.ButtonOpen);
+            this.Controls.Add(this.ListBoxDisplay);
+            this.Controls.Add(this.TextBoxSearch);
+            this.Controls.Add(this.TextBoxDefinition);
+            this.Controls.Add(this.TextBoxStructure);
+            this.Controls.Add(this.TextBoxCategory);
+            this.Controls.Add(this.TextBoxName);
+            this.Controls.Add(this.ButtonDelete);
+            this.Controls.Add(this.ButtonEdit);
+            this.Controls.Add(this.ButtonAdd);
             this.Name = "WikiForm";
             this.Text = "Data Structures Wiki";
             this.ResumeLayout(false);
@@ -175,17 +175,17 @@
 
         #endregion
 
-        private Button buttonAdd;
-        private Button buttonEdit;
-        private Button buttonDelete;
-        private TextBox textBoxName;
-        private TextBox textBoxCategory;
-        private TextBox textBoxStructure;
-        private TextBox textBoxDefinition;
-        private TextBox textBoxSearch;
-        private ListBox listBoxDisplay;
-        private Button buttonOpen;
-        private Button buttonSave;
-        private Button buttonSearch;
+        private Button ButtonAdd;
+        private Button ButtonEdit;
+        private Button ButtonDelete;
+        private TextBox TextBoxName;
+        private TextBox TextBoxCategory;
+        private TextBox TextBoxStructure;
+        private TextBox TextBoxDefinition;
+        private TextBox TextBoxSearch;
+        private ListBox ListBoxDisplay;
+        private Button ButtonOpen;
+        private Button ButtonSave;
+        private Button ButtonSearch;
     }
 }

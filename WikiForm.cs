@@ -25,15 +25,15 @@ namespace AssessmentOne
 
         private void DisplayData()
         {
-            listBoxDisplay.Items.Clear();
+            ListBoxDisplay.Items.Clear();
             for (int x = 0; x < entries; x++)
             {
                 string term = wikiData[x, 0] + "\t" + wikiData[x, 1];
-                listBoxDisplay.Items.Add(term);
+                ListBoxDisplay.Items.Add(term);
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
             ClearBoxes();
@@ -45,10 +45,10 @@ namespace AssessmentOne
             {
                 try
                 {
-                    wikiData[pointer, 0] = textBoxName.Text;
-                    wikiData[pointer, 1] = textBoxCategory.Text;
-                    wikiData[pointer, 2] = textBoxStructure.Text;
-                    wikiData[pointer, 3] = textBoxDefinition.Text;
+                    wikiData[pointer, 0] = TextBoxName.Text;
+                    wikiData[pointer, 1] = TextBoxCategory.Text;
+                    wikiData[pointer, 2] = TextBoxStructure.Text;
+                    wikiData[pointer, 3] = TextBoxDefinition.Text;
                     pointer++;
                 }
                 catch
@@ -61,10 +61,10 @@ namespace AssessmentOne
 
         private void ClearBoxes()
         {
-            textBoxName.Clear();
-            textBoxCategory.Clear();
-            textBoxStructure.Clear();
-            textBoxDefinition.Clear();
+            TextBoxName.Clear();
+            TextBoxCategory.Clear();
+            TextBoxStructure.Clear();
+            TextBoxDefinition.Clear();
         }
 
         private void SortArray()
@@ -92,7 +92,7 @@ namespace AssessmentOne
             }
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
             int startIndex = -1;
             int finalIndex = pointer;
@@ -101,7 +101,7 @@ namespace AssessmentOne
             while (!false && !((finalIndex - startIndex) <= 1))
             {
                 int newIndex = (finalIndex + startIndex) / 2;
-                if (string.Compare(wikiData[newIndex, 0], textBoxSearch.Text) == 0)
+                if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 0)
                 {
                     foundIndex = newIndex;
                     found = true;
@@ -109,7 +109,7 @@ namespace AssessmentOne
                 }
                 else
                 {
-                    if (string.Compare(wikiData[newIndex, 0], textBoxSearch.Text) == 1)
+                    if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 1)
                         finalIndex = newIndex;
                     else
                         startIndex = newIndex;
@@ -117,28 +117,28 @@ namespace AssessmentOne
             }
             if (found)
             {
-                textBoxName.Text = wikiData[foundIndex, 0];
-                textBoxCategory.Text = wikiData[foundIndex, 1];
-                textBoxStructure.Text = wikiData[foundIndex, 2];
-                textBoxDefinition.Text = wikiData[foundIndex, 3];
+                TextBoxName.Text = wikiData[foundIndex, 0];
+                TextBoxCategory.Text = wikiData[foundIndex, 1];
+                TextBoxStructure.Text = wikiData[foundIndex, 2];
+                TextBoxDefinition.Text = wikiData[foundIndex, 3];
             }
             else
             {
                 MessageBox.Show("Not found");
-                textBoxSearch.Clear();
+                TextBoxSearch.Clear();
             }
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             try
             {
                 using (BinaryWriter bw = new BinaryWriter(new FileStream(fileName, FileMode.Create)))
                 {
                     SortArray();
-                    for (int y = 0; y < pointer; y++)
+                    for (int x = 0; x < pointer; x++)
                     {
-                        for (int x = 0; x < attributes; x++)
+                        for (int y = 0; y < attributes; y++)
                         {
                             bw.Write(wikiData[x, y]);
                         }
@@ -151,7 +151,7 @@ namespace AssessmentOne
             }
         }
 
-        private void buttonOpen_Click(object sender, EventArgs e)
+        private void ButtonOpen_Click(object sender, EventArgs e)
         {
             int x = 0;
             try
