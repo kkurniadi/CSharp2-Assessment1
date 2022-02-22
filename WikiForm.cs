@@ -82,7 +82,7 @@ namespace AssessmentOne
             {
                 if (!(string.IsNullOrEmpty(wikiData[i + 1, 0])))
                 {
-                    if (string.Compare(wikiData[i, 0], wikiData[i + 1, 0]) == 1)
+                    if (string.Compare(wikiData[i, 0], wikiData[i + 1, 0]) > 0)
                     {
                         Swap(i);
                     }
