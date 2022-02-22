@@ -19,7 +19,7 @@ namespace AssessmentOne
         }
         static int entries = 12;
         static int attributes = 4;
-        string fileName = "definitions.dat";
+        string defaultFileName = "definitions.dat";
         int pointer = 0;
         string[,] wikiData = new string[entries, attributes];
 
@@ -118,7 +118,7 @@ namespace AssessmentOne
             }
             if (found)
             {
-                DisplayInfo(foundIndex);
+                DisplayForOne(foundIndex);
             }
             else
             {
@@ -129,9 +129,28 @@ namespace AssessmentOne
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveData = new()
+            {
+                Filter = "DAT Files|*.dat",
+                Title = "Save file..."
+            };
+            saveData.ShowDialog();
+            string fileName = saveData.FileName;
+            if (saveData.FileName != "")
+            {
+                SaveFile(fileName);
+            }
+            else
+            {
+                SaveFile(defaultFileName);
+            }
+        }
+
+        private void SaveFile(string saveFileName)
+        {
             try
             {
-                using BinaryWriter bw = new(new FileStream(fileName, FileMode.Create));
+                using BinaryWriter bw = new(new FileStream(saveFileName, FileMode.Create));
                 SortArray();
                 for (int x = 0; x < pointer; x++)
                 {
@@ -149,10 +168,23 @@ namespace AssessmentOne
 
         private void ButtonOpen_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openData = new()
+            {
+                Filter = "DAT Files|*.dat",
+                Title = "Open file..."
+            };
+            if (openData.ShowDialog() == DialogResult.OK)
+            {
+                OpenFile(openData.FileName);
+            }
+        }
+
+        private void OpenFile(string openFileName)
+        {
             int x = 0;
             try
             {
-                using BinaryReader br = new(new FileStream(fileName, FileMode.Open));
+                using BinaryReader br = new(new FileStream(openFileName, FileMode.Open));
                 while (br.BaseStream.Position != br.BaseStream.Length)
                 {
                     for (int y = 0; y < attributes; y++)
@@ -170,7 +202,7 @@ namespace AssessmentOne
             }
         }
 
-        private void DisplayInfo(int x)
+        private void DisplayForOne(int x)
         {
             ClearBoxes();
             TextBoxName.Text = wikiData[x, 0];
@@ -184,7 +216,7 @@ namespace AssessmentOne
             try
             {
                 ListBoxDisplay.SetSelected(ListBoxDisplay.SelectedIndex, true);
-                DisplayInfo(ListBoxDisplay.SelectedIndex);
+                DisplayForOne(ListBoxDisplay.SelectedIndex);
             }
             catch
             {
@@ -201,7 +233,8 @@ namespace AssessmentOne
         {
             if (ListBoxDisplay.SelectedItem != null)
             {
-                if (HasAllInfo(TextBoxName) && HasAllInfo(TextBoxCategory) && HasAllInfo(TextBoxStructure) && HasAllInfo(TextBoxCategory))
+                if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
+                    && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text))
                 {
                     int index = ListBoxDisplay.SelectedIndex;
                     wikiData[index, 0] = TextBoxName.Text;
@@ -211,15 +244,11 @@ namespace AssessmentOne
                     DisplayNameCat();
                     ClearBoxes();
                 }
+                else
+                {
+                    MessageBox.Show("Please make sure all boxes are filled");
+                }
             }
-        }
-
-        private bool HasAllInfo(TextBox t)
-        {
-            if (!string.IsNullOrEmpty(t.Text))
-                return true;
-            else
-                return false;
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
