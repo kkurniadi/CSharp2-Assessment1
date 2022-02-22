@@ -37,6 +37,7 @@ namespace AssessmentOne
         {
             AddTerm();
             ClearBoxes();
+            TextBoxName.Focus();
         }
 
         private void AddTerm()
@@ -198,11 +199,16 @@ namespace AssessmentOne
 
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
-            if (ListBoxDisplay.SelectedItem == null)
+            if (ListBoxDisplay.SelectedItem != null)
             {
                 if (HasAllInfo(TextBoxName) && HasAllInfo(TextBoxCategory) && HasAllInfo(TextBoxStructure) && HasAllInfo(TextBoxCategory))
                 {
-
+                    int index = ListBoxDisplay.SelectedIndex;
+                    wikiData[index, 0] = TextBoxName.Text;
+                    wikiData[index, 1] = TextBoxCategory.Text;
+                    wikiData[index, 2] = TextBoxStructure.Text;
+                    wikiData[index, 3] = TextBoxDefinition.Text;
+                    DisplayNameCat();
                 }
             }
         }
