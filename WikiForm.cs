@@ -44,17 +44,25 @@ namespace AssessmentOne
         {
             if (pointer < entries)
             {
-                try
+                if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
+                        && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
                 {
-                    wikiData[pointer, 0] = TextBoxName.Text;
-                    wikiData[pointer, 1] = TextBoxCategory.Text;
-                    wikiData[pointer, 2] = TextBoxStructure.Text;
-                    wikiData[pointer, 3] = TextBoxDefinition.Text;
-                    pointer++;
+                    try
+                    {
+                        wikiData[pointer, 0] = TextBoxName.Text;
+                        wikiData[pointer, 1] = TextBoxCategory.Text;
+                        wikiData[pointer, 2] = TextBoxStructure.Text;
+                        wikiData[pointer, 3] = TextBoxDefinition.Text;
+                        pointer++;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Could not add entry");
+                    }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Nobody wants any more data structures to define");
+                    MessageBox.Show("Please make sure all boxes are filled");
                 }
             }
             DisplayNameCat();
