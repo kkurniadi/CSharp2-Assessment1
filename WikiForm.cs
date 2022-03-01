@@ -129,11 +129,14 @@ namespace AssessmentOne
             }
             if (found)
             {
+                ListBoxDisplay.SelectedIndex = foundIndex;
                 DisplayForOne(foundIndex);
             }
             else
             {
                 MessageBox.Show("Not found");
+                ListBoxDisplay.ClearSelected();
+                ClearBoxes();
                 TextBoxSearch.Clear();
             }
         }
