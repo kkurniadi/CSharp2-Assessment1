@@ -36,7 +36,6 @@ namespace AssessmentOne
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
-            ClearBoxes();
             TextBoxName.Focus();
         }
 
@@ -54,6 +53,7 @@ namespace AssessmentOne
                         wikiData[pointer, 2] = TextBoxStructure.Text;
                         wikiData[pointer, 3] = TextBoxDefinition.Text;
                         pointer++;
+                        ClearBoxes();
                     }
                     catch
                     {
@@ -78,13 +78,16 @@ namespace AssessmentOne
 
         private void SortArray()
         {
-            for (int i = 0; i < pointer - 1; i++)
+            for (int x = 1; x < pointer; x++)
             {
-                if (!(string.IsNullOrEmpty(wikiData[i + 1, 0])))
+                for (int i = 0; i < pointer - 1; i++)
                 {
-                    if (string.Compare(wikiData[i, 0], wikiData[i + 1, 0]) > 0)
+                    if (!(string.IsNullOrEmpty(wikiData[i + 1, 0])))
                     {
-                        Swap(i);
+                        if (string.Compare(wikiData[i, 0], wikiData[i + 1, 0]) > 0)
+                        {
+                            Swap(i);
+                        }
                     }
                 }
             }
