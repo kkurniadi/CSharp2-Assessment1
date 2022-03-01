@@ -40,6 +40,7 @@
             this.ButtonOpen = new System.Windows.Forms.Button();
             this.ButtonSave = new System.Windows.Forms.Button();
             this.ButtonSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonAdd
@@ -117,9 +118,9 @@
             // 
             this.ListBoxDisplay.FormattingEnabled = true;
             this.ListBoxDisplay.ItemHeight = 15;
-            this.ListBoxDisplay.Location = new System.Drawing.Point(286, 68);
+            this.ListBoxDisplay.Location = new System.Drawing.Point(286, 83);
             this.ListBoxDisplay.Name = "ListBoxDisplay";
-            this.ListBoxDisplay.Size = new System.Drawing.Size(287, 214);
+            this.ListBoxDisplay.Size = new System.Drawing.Size(287, 199);
             this.ListBoxDisplay.TabIndex = 8;
             this.ListBoxDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxDisplay_MouseClick);
             // 
@@ -153,11 +154,21 @@
             this.ButtonSearch.UseVisualStyleBackColor = true;
             this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(286, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "List of Terms/Definitions";
+            // 
             // WikiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 342);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.ButtonOpen);
@@ -191,5 +202,6 @@
         private Button ButtonOpen;
         private Button ButtonSave;
         private Button ButtonSearch;
+        private Label label1;
     }
 }
