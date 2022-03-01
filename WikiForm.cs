@@ -161,13 +161,25 @@ namespace AssessmentOne
         {
             try
             {
-                using BinaryWriter bw = new(new FileStream(saveFileName, FileMode.Create));
+                /*using BinaryWriter bw = new(new FileStream(saveFileName, FileMode.Create));
                 SortArray();
                 for (int x = 0; x < pointer; x++)
                 {
                     for (int y = 0; y < attributes; y++)
                     {
                         bw.Write(wikiData[x, y]);
+                    }
+                }*/
+                using(Stream stream = File.Open(defaultFileName, FileMode.Create))
+                {
+                    SortArray();
+                    BinaryFormatter bin = new BinaryFormatter();
+                    for (int x = 0; x < pointer; x++)
+                    {
+                        for (int y = 0; y < attributes; y++)
+                        {
+                            bin.Serialize(stream, wikiData[x, y]);
+                        }
                     }
                 }
             }
@@ -192,10 +204,11 @@ namespace AssessmentOne
 
         private void OpenFile(string openFileName)
         {
-            int x = 0;
+            //int x = 0;
+            int ptr = 0;
             try
             {
-                using BinaryReader br = new(new FileStream(openFileName, FileMode.Open));
+                /*using BinaryReader br = new(new FileStream(openFileName, FileMode.Open));
                 while (br.BaseStream.Position != br.BaseStream.Length)
                 {
                     for (int y = 0; y < attributes; y++)
@@ -205,7 +218,24 @@ namespace AssessmentOne
                     x++;
                 }
                 pointer = x;
-                DisplayNameCat();
+                DisplayNameCat();*/
+                using (Stream stream = File.Open(defaultFileName, FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    while(stream.Position < stream.Length)
+                    {
+                        for (int x = 0; x < entries; x++)
+                        {
+                            for (int y = 0; y < attributes; y++)
+                            {
+                                wikiData[x, y] = (string)bin.Deserialize(stream);
+                            }
+                            ptr++;
+                        }
+                    }
+                    pointer = ptr;
+                    DisplayNameCat();
+                }
             }
             catch (IOException ex)
             {
