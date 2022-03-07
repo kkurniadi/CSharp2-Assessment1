@@ -252,5 +252,36 @@ namespace AssessmentOne
         {
             TextBoxSearch.Clear();
         }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDisplay.SelectedItem != null)
+            {
+                if (BoxesFilled())
+                {
+                    int index = ListBoxDisplay.SelectedIndex;
+                    wikiData[index, 0] = TextBoxName.Text;
+                    wikiData[index, 1] = TextBoxCategory.Text;
+                    wikiData[index, 2] = TextBoxStructure.Text;
+                    wikiData[index, 3] = TextBoxDefinition.Text;
+                    DisplayNameCat();
+                    ClearBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Please make sure all boxes are filled");
+                }
+            }
+        }
+
+        private bool BoxesFilled()
+        {
+            if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
+                && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -65,6 +65,7 @@
             this.ButtonEdit.TabIndex = 1;
             this.ButtonEdit.Text = "Edit";
             this.ButtonEdit.UseVisualStyleBackColor = true;
+            this.ButtonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // ButtonDelete
             // 
