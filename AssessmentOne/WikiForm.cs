@@ -192,5 +192,47 @@ namespace AssessmentOne
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void ButtonOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openData = new OpenFileDialog
+            {
+                Filter = "DAT Files|*.dat",
+                Title = "Open file..."
+            };
+            if (openData.ShowDialog() == DialogResult.OK)
+            {
+                OpenFile(openData.FileName);
+            }
+        }
+
+        private void OpenFile(string openFileName)
+        {
+            int ptr = 0;
+            try
+            {
+                using (Stream stream = File.Open(openFileName, FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    while (stream.Position < stream.Length)
+                    {
+                        for (int x = 0; x < entries; x++)
+                        {
+                            for (int y = 0; y < attributes; y++)
+                            {
+                                wikiData[x, y] = (string)bin.Deserialize(stream);
+                            }
+                            ptr++;
+                        }
+                    }
+                    pointer = ptr;
+                    DisplayNameCat();
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
