@@ -102,5 +102,51 @@ namespace AssessmentOne
                 wikiData[i + 1, j] = temp;
             }
         }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            int startIndex = -1;
+            int finalIndex = pointer;
+            bool found = false;
+            int foundIndex = -1;
+            while (!false && !((finalIndex - startIndex) <= 1))
+            {
+                int newIndex = (finalIndex + startIndex) / 2;
+                if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 0)
+                {
+                    foundIndex = newIndex;
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 1)
+                        finalIndex = newIndex;
+                    else
+                        startIndex = newIndex;
+                }
+            }
+            if (found)
+            {
+                ListBoxDisplay.SelectedIndex = foundIndex;
+                DisplayForOne(foundIndex);
+            }
+            else
+            {
+                MessageBox.Show("Not found");
+                ListBoxDisplay.ClearSelected();
+                ClearBoxes();
+                TextBoxSearch.Clear();
+            }
+        }
+
+        private void DisplayForOne(int x)
+        {
+            ClearBoxes();
+            TextBoxName.Text = wikiData[x, 0];
+            TextBoxCategory.Text = wikiData[x, 1];
+            TextBoxStructure.Text = wikiData[x, 2];
+            TextBoxDefinition.Text = wikiData[x, 3];
+        }
     }
 }

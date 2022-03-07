@@ -163,6 +163,7 @@
             this.ButtonSearch.TabIndex = 13;
             this.ButtonSearch.Text = "Search";
             this.ButtonSearch.UseVisualStyleBackColor = true;
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // label5
             // 
