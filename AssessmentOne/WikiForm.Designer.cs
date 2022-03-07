@@ -75,6 +75,7 @@
             this.ButtonDelete.TabIndex = 2;
             this.ButtonDelete.Text = "Delete";
             this.ButtonDelete.UseVisualStyleBackColor = true;
+            this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
             // TextBoxName
             // 

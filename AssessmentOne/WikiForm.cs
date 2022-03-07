@@ -283,5 +283,28 @@ namespace AssessmentOne
             }
             return false;
         }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDisplay.SelectedItem != null)
+            {
+                int index = ListBoxDisplay.SelectedIndex;
+                DialogResult deleteEntry = MessageBox.Show("Are you sure you want to delete?", "Confirmation",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (deleteEntry == DialogResult.Yes)
+                {
+                    for (int i = index + 1; i < pointer; i++)
+                    {
+                        wikiData[i - 1, 0] = wikiData[i, 0];
+                        wikiData[i - 1, 1] = wikiData[i, 1];
+                        wikiData[i - 1, 2] = wikiData[i, 2];
+                        wikiData[i - 1, 3] = wikiData[i, 3];
+                    }
+                    pointer--;
+                    DisplayNameCat();
+                    ClearBoxes();
+                }
+            }
+        }
     }
 }
