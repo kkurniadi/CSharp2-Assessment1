@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -147,6 +149,48 @@ namespace AssessmentOne
             TextBoxCategory.Text = wikiData[x, 1];
             TextBoxStructure.Text = wikiData[x, 2];
             TextBoxDefinition.Text = wikiData[x, 3];
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveData = new SaveFileDialog
+            {
+                Filter = "DAT Files|*.dat",
+                Title = "Save file..."
+            };
+            saveData.ShowDialog();
+            string fileName = saveData.FileName;
+            if (saveData.FileName != "")
+            {
+                SaveFile(fileName);
+            }
+            else
+            {
+                SaveFile(defaultFileName);
+            }
+        }
+
+        private void SaveFile(string saveFileName)
+        {
+            try
+            {
+                using (Stream stream = File.Open(saveFileName, FileMode.Create))
+                {
+                    SortArray();
+                    BinaryFormatter bin = new BinaryFormatter();
+                    for (int x = 0; x < pointer; x++)
+                    {
+                        for (int y = 0; y < attributes; y++)
+                        {
+                            bin.Serialize(stream, wikiData[x, y]);
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

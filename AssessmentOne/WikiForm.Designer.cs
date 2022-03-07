@@ -191,6 +191,7 @@
             this.ButtonSave.TabIndex = 16;
             this.ButtonSave.Text = "Save";
             this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // WikiForm
             // 
