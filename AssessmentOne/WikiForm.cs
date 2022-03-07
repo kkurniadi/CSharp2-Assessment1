@@ -234,5 +234,23 @@ namespace AssessmentOne
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ListBoxDisplay.SetSelected(ListBoxDisplay.SelectedIndex, true);
+                DisplayForOne(ListBoxDisplay.SelectedIndex);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
+        {
+            TextBoxSearch.Clear();
+        }
     }
 }
