@@ -74,5 +74,33 @@ namespace AssessmentOne
             TextBoxStructure.Clear();
             TextBoxDefinition.Clear();
         }
+
+        private void SortArray()
+        {
+            for (int x = 1; x < pointer; x++)
+            {
+                for (int i = 0; i < pointer - 1; i++)
+                {
+                    if (!(string.IsNullOrEmpty(wikiData[i + 1, 0])))
+                    {
+                        if (string.Compare(wikiData[i, 0], wikiData[i + 1, 0]) > 0)
+                        {
+                            Swap(i);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Swap(int i)
+        {
+            string temp;
+            for (int j = 0; j < attributes; j++)
+            {
+                temp = wikiData[i, j];
+                wikiData[i, j] = wikiData[i + 1, j];
+                wikiData[i + 1, j] = temp;
+            }
+        }
     }
 }
