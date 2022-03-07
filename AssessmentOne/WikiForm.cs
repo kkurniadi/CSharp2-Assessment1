@@ -31,5 +31,48 @@ namespace AssessmentOne
                 ListBoxDisplay.Items.Add(term);
             }
         }
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            AddTerm();
+            TextBoxName.Focus();
+        }
+
+        private void AddTerm()
+        {
+            if (pointer < entries)
+            {
+                if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
+                    && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
+                {
+                    try
+                    {
+                        wikiData[pointer, 0] = TextBoxName.Text;
+                        wikiData[pointer, 1] = TextBoxCategory.Text;
+                        wikiData[pointer, 2] = TextBoxStructure.Text;
+                        wikiData[pointer, 3] = TextBoxDefinition.Text;
+                        pointer++;
+                        ClearBoxes();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Could not add entry");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please make sure all boxes are filled");
+                }
+            }
+            DisplayNameCat();
+        }
+
+        private void ClearBoxes()
+        {
+            TextBoxName.Clear();
+            TextBoxCategory.Clear();
+            TextBoxStructure.Clear();
+            TextBoxDefinition.Clear();
+        }
     }
 }
