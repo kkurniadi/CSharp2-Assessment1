@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Kirsten Kurniadi, ID: 30045816
+// Kirsten Kurniadi, ID: 30045816, 8/03/2022
+// A program that stores wiki data in a two-dimensional array
 namespace AssessmentOne
 {
     public partial class WikiForm : Form
@@ -150,13 +151,15 @@ namespace AssessmentOne
             TextBoxStructure.Text = wikiData[x, 2];
             TextBoxDefinition.Text = wikiData[x, 3];
         }
-
+        #region FileIO
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveData = new SaveFileDialog
             {
                 Filter = "DAT Files|*.dat",
-                Title = "Save file..."
+                Title = "Save file...",
+                InitialDirectory = Application.StartupPath,
+                DefaultExt = "dat"
             };
             saveData.ShowDialog();
             string fileName = saveData.FileName;
@@ -197,6 +200,7 @@ namespace AssessmentOne
         {
             OpenFileDialog openData = new OpenFileDialog
             {
+                InitialDirectory = Application.StartupPath,
                 Filter = "DAT Files|*.dat",
                 Title = "Open file..."
             };
@@ -234,6 +238,7 @@ namespace AssessmentOne
                 MessageBox.Show(ex.ToString());
             }
         }
+        #endregion FileIO
 
         private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
         {
