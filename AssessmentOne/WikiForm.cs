@@ -33,7 +33,6 @@ namespace AssessmentOne
             AddTerm();
             TextBoxName.Focus();
         }
-
         private void AddTerm()
         {
             if (pointer < entries)
@@ -118,6 +117,7 @@ namespace AssessmentOne
             TextBoxStructure.Clear();
             TextBoxDefinition.Clear();
         }
+        #region SortSwap
         // 8.4	Write the code for a Bubble Sort method to sort the 2D array by Name ascending,
         // ensure you use a separate swap method that passes (by reference) the array element to be swapped
         // (do not use any built-in array methods),
@@ -137,7 +137,6 @@ namespace AssessmentOne
                 }
             }
         }
-
         private void Swap(int i)
         {
             string temp;
@@ -148,6 +147,8 @@ namespace AssessmentOne
                 wikiData[i + 1, j] = temp;
             }
         }
+        #endregion SortSwap
+        #region Search
         // 8.5	Write the code for a Binary Search for the Name in the 2D array
         // and display the information in the other textboxes when found,
         // add suitable feedback if the search in not successful and clear the search textbox
@@ -188,6 +189,13 @@ namespace AssessmentOne
                 TextBoxSearch.Clear();
             }
         }
+        // A double mouse click in the search text box will clear the search input box,
+        private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
+        {
+            TextBoxSearch.Clear();
+        }
+        #endregion Search
+        #region Display
         // 8.6	Create a display method that will show the following information in a List box: Name and Category,
         private void DisplayNameCat()
         {
@@ -200,6 +208,18 @@ namespace AssessmentOne
         }
         // 8.7	Create a method so the user can select a definition (Name) from the Listbox
         // and all the information is displayed in the appropriate Textboxes,
+        private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                ListBoxDisplay.SetSelected(ListBoxDisplay.SelectedIndex, true);
+                DisplayForOne(ListBoxDisplay.SelectedIndex);
+            }
+            catch
+            {
+                return;
+            }
+        }
         private void DisplayForOne(int x)
         {
             ClearBoxes();
@@ -208,6 +228,7 @@ namespace AssessmentOne
             TextBoxStructure.Text = wikiData[x, 2];
             TextBoxDefinition.Text = wikiData[x, 3];
         }
+        #endregion Display
         #region FileIO
         // 8.8	Create a SAVE button so the information from the 2D array can be written into
         // a binary file called definitions.dat which is sorted by Name,
@@ -231,7 +252,6 @@ namespace AssessmentOne
                 SaveFile(defaultFileName);
             }
         }
-
         private void SaveFile(string saveFileName)
         {
             try
@@ -269,7 +289,6 @@ namespace AssessmentOne
                 OpenFile(openData.FileName);
             }
         }
-
         private void OpenFile(string openFileName)
         {
             int ptr = 0;
@@ -299,25 +318,6 @@ namespace AssessmentOne
             }
         }
         #endregion FileIO
-
-        private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                ListBoxDisplay.SetSelected(ListBoxDisplay.SelectedIndex, true);
-                DisplayForOne(ListBoxDisplay.SelectedIndex);
-            }
-            catch
-            {
-                return;
-            }
-        }
-
-        private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
-        {
-            TextBoxSearch.Clear();
-        }
-
         private bool BoxesFilled()
         {
             if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
