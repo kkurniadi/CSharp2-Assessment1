@@ -75,13 +75,18 @@ namespace AssessmentOne
             {
                 if (BoxesFilled())
                 {
-                    int index = ListBoxDisplay.SelectedIndex;
-                    wikiData[index, 0] = TextBoxName.Text;
-                    wikiData[index, 1] = TextBoxCategory.Text;
-                    wikiData[index, 2] = TextBoxStructure.Text;
-                    wikiData[index, 3] = TextBoxDefinition.Text;
-                    DisplayNameCat();
-                    ClearBoxes();
+                    var result = MessageBox.Show("Are you sure you want to edit?", "Edit Entry",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.OK)
+                    {
+                        int index = ListBoxDisplay.SelectedIndex;
+                        wikiData[index, 0] = TextBoxName.Text;
+                        wikiData[index, 1] = TextBoxCategory.Text;
+                        wikiData[index, 2] = TextBoxStructure.Text;
+                        wikiData[index, 3] = TextBoxDefinition.Text;
+                        DisplayNameCat();
+                        ClearBoxes();
+                    }
                 }
                 else
                 {
