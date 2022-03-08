@@ -328,5 +328,12 @@ namespace AssessmentOne
             }
             return false;
         }
+
+        private void ListBoxDisplay_DoubleClick(object sender, EventArgs e)
+        {
+            ClearBoxes();
+            SortArray();
+            DisplayNameCat();
+        }
     }
 }

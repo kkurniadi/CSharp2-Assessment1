@@ -158,6 +158,7 @@
             this.ListBoxDisplay.Size = new System.Drawing.Size(236, 199);
             this.ListBoxDisplay.TabIndex = 12;
             this.ListBoxDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxDisplay_MouseClick);
+            this.ListBoxDisplay.DoubleClick += new System.EventHandler(this.ListBoxDisplay_DoubleClick);
             // 
             // ButtonSearch
             // 
