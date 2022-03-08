@@ -146,6 +146,12 @@ namespace AssessmentOne
                 wikiData[i + 1, j] = temp;
             }
         }
+        private void ListBoxDisplay_DoubleClick(object sender, EventArgs e)
+        {
+            ClearBoxes();
+            SortArray();
+            DisplayNameCat();
+        }
         #endregion SortSwap
         #region Search
         // 8.5	Write the code for a Binary Search for the Name in the 2D array
@@ -327,13 +333,6 @@ namespace AssessmentOne
                 return true;
             }
             return false;
-        }
-
-        private void ListBoxDisplay_DoubleClick(object sender, EventArgs e)
-        {
-            ClearBoxes();
-            SortArray();
-            DisplayNameCat();
         }
     }
 }
