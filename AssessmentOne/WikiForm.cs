@@ -21,20 +21,13 @@ namespace AssessmentOne
         }
         static int entries = 12;
         static int attributes = 4;
+        // 8.1	Create a global 2D string array, use static variables for the dimensions(row, column),
+        string[,] wikiData = new string[entries, attributes];
         string defaultFileName = "definitions.dat";
         int pointer = 0;
-        string[,] wikiData = new string[entries, attributes];
-
-        private void DisplayNameCat()
-        {
-            ListBoxDisplay.Items.Clear();
-            for (int x = 0; x < pointer; x++)
-            {
-                string term = wikiData[x, 0] + "\t" + wikiData[x, 1];
-                ListBoxDisplay.Items.Add(term);
-            }
-        }
+        
         #region AddEditDelete
+        // 8.2	Create an ADD button that will store the information from the 4 text boxes into the 2D array,
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
@@ -117,6 +110,7 @@ namespace AssessmentOne
             }
         }
         #endregion AddEditDelete
+        // 8.3	Create a CLEAR method to clear the four text boxes so a new definition can be added,
         private void ClearBoxes()
         {
             TextBoxName.Clear();
@@ -124,7 +118,9 @@ namespace AssessmentOne
             TextBoxStructure.Clear();
             TextBoxDefinition.Clear();
         }
-
+        // 8.4	Write the code for a Bubble Sort method to sort the 2D array by Name ascending,
+        // ensure you use a separate swap method that passes (by reference) the array element to be swapped
+        // (do not use any built-in array methods),
         private void SortArray()
         {
             for (int x = 1; x < pointer; x++)
@@ -152,7 +148,10 @@ namespace AssessmentOne
                 wikiData[i + 1, j] = temp;
             }
         }
-
+        // 8.5	Write the code for a Binary Search for the Name in the 2D array
+        // and display the information in the other textboxes when found,
+        // add suitable feedback if the search in not successful and clear the search textbox
+        // (do not use any built-in array methods),
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             int startIndex = -1;
@@ -189,7 +188,18 @@ namespace AssessmentOne
                 TextBoxSearch.Clear();
             }
         }
-
+        // 8.6	Create a display method that will show the following information in a List box: Name and Category,
+        private void DisplayNameCat()
+        {
+            ListBoxDisplay.Items.Clear();
+            for (int x = 0; x < pointer; x++)
+            {
+                string term = wikiData[x, 0] + "\t" + wikiData[x, 1];
+                ListBoxDisplay.Items.Add(term);
+            }
+        }
+        // 8.7	Create a method so the user can select a definition (Name) from the Listbox
+        // and all the information is displayed in the appropriate Textboxes,
         private void DisplayForOne(int x)
         {
             ClearBoxes();
@@ -199,6 +209,8 @@ namespace AssessmentOne
             TextBoxDefinition.Text = wikiData[x, 3];
         }
         #region FileIO
+        // 8.8	Create a SAVE button so the information from the 2D array can be written into
+        // a binary file called definitions.dat which is sorted by Name,
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveData = new SaveFileDialog
@@ -242,7 +254,8 @@ namespace AssessmentOne
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        // 8.9	Create a LOAD button that will read the information
+        // from a binary file called definitions.dat into the 2D array,
         private void ButtonOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog openData = new OpenFileDialog
