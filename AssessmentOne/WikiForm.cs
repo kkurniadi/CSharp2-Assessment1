@@ -37,8 +37,7 @@ namespace AssessmentOne
         {
             if (pointer < entries)
             {
-                if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
-                    && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
+                if (BoxesFilled())
                 {
                     try
                     {
@@ -320,8 +319,10 @@ namespace AssessmentOne
         #endregion FileIO
         private bool BoxesFilled()
         {
-            if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
-                && !string.IsNullOrEmpty(TextBoxStructure.Text) && !string.IsNullOrEmpty(TextBoxDefinition.Text))
+            if (!string.IsNullOrWhiteSpace(TextBoxName.Text)
+                && !string.IsNullOrWhiteSpace(TextBoxCategory.Text)
+                && !string.IsNullOrWhiteSpace(TextBoxStructure.Text)
+                && !string.IsNullOrWhiteSpace(TextBoxDefinition.Text))
             {
                 return true;
             }
