@@ -34,7 +34,7 @@ namespace AssessmentOne
                 ListBoxDisplay.Items.Add(term);
             }
         }
-
+        #region AddEditDelete
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
@@ -69,7 +69,49 @@ namespace AssessmentOne
             }
             DisplayNameCat();
         }
-
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDisplay.SelectedItem != null)
+            {
+                if (BoxesFilled())
+                {
+                    int index = ListBoxDisplay.SelectedIndex;
+                    wikiData[index, 0] = TextBoxName.Text;
+                    wikiData[index, 1] = TextBoxCategory.Text;
+                    wikiData[index, 2] = TextBoxStructure.Text;
+                    wikiData[index, 3] = TextBoxDefinition.Text;
+                    DisplayNameCat();
+                    ClearBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Please make sure all boxes are filled");
+                }
+            }
+        }
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (ListBoxDisplay.SelectedItem != null)
+            {
+                int index = ListBoxDisplay.SelectedIndex;
+                DialogResult deleteEntry = MessageBox.Show("Are you sure you want to delete?", "Confirmation",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (deleteEntry == DialogResult.Yes)
+                {
+                    for (int i = index + 1; i < pointer; i++)
+                    {
+                        wikiData[i - 1, 0] = wikiData[i, 0];
+                        wikiData[i - 1, 1] = wikiData[i, 1];
+                        wikiData[i - 1, 2] = wikiData[i, 2];
+                        wikiData[i - 1, 3] = wikiData[i, 3];
+                    }
+                    pointer--;
+                    DisplayNameCat();
+                    ClearBoxes();
+                }
+            }
+        }
+        #endregion AddEditDelete
         private void ClearBoxes()
         {
             TextBoxName.Clear();
@@ -258,27 +300,6 @@ namespace AssessmentOne
             TextBoxSearch.Clear();
         }
 
-        private void ButtonEdit_Click(object sender, EventArgs e)
-        {
-            if (ListBoxDisplay.SelectedItem != null)
-            {
-                if (BoxesFilled())
-                {
-                    int index = ListBoxDisplay.SelectedIndex;
-                    wikiData[index, 0] = TextBoxName.Text;
-                    wikiData[index, 1] = TextBoxCategory.Text;
-                    wikiData[index, 2] = TextBoxStructure.Text;
-                    wikiData[index, 3] = TextBoxDefinition.Text;
-                    DisplayNameCat();
-                    ClearBoxes();
-                }
-                else
-                {
-                    MessageBox.Show("Please make sure all boxes are filled");
-                }
-            }
-        }
-
         private bool BoxesFilled()
         {
             if (!string.IsNullOrEmpty(TextBoxName.Text) && !string.IsNullOrEmpty(TextBoxCategory.Text)
@@ -287,29 +308,6 @@ namespace AssessmentOne
                 return true;
             }
             return false;
-        }
-
-        private void ButtonDelete_Click(object sender, EventArgs e)
-        {
-            if (ListBoxDisplay.SelectedItem != null)
-            {
-                int index = ListBoxDisplay.SelectedIndex;
-                DialogResult deleteEntry = MessageBox.Show("Are you sure you want to delete?", "Confirmation",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (deleteEntry == DialogResult.Yes)
-                {
-                    for (int i = index + 1; i < pointer; i++)
-                    {
-                        wikiData[i - 1, 0] = wikiData[i, 0];
-                        wikiData[i - 1, 1] = wikiData[i, 1];
-                        wikiData[i - 1, 2] = wikiData[i, 2];
-                        wikiData[i - 1, 3] = wikiData[i, 3];
-                    }
-                    pointer--;
-                    DisplayNameCat();
-                    ClearBoxes();
-                }
-            }
         }
     }
 }
