@@ -68,8 +68,8 @@ namespace AssessmentOne
                 if (BoxesFilled())
                 {
                     var result = MessageBox.Show("Are you sure you want to edit?", "Edit Entry",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (result == DialogResult.OK)
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
                         int index = ListBoxDisplay.SelectedIndex;
                         wikiData[index, 0] = TextBoxName.Text;
