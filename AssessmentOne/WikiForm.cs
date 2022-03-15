@@ -27,7 +27,7 @@ namespace AssessmentOne
         int pointer = 0;
         
         #region AddEditDelete
-        // 8.2	Create an ADD button that will store the information from the 4 text boxes into the 2D array,
+        // 8.2	Create ADD, EDIT, DELETE buttons that will store the information from the 4 text boxes into the 2D array,
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
