@@ -19,16 +19,17 @@ namespace AssessmentOne
         {
             InitializeComponent();
         }
+        // 8.1	Create a global 2D string array, use static variables for the dimensions(row, column),
         static int entries = 12;
         static int attributes = 4;
-        // 8.1	Create a global 2D string array, use static variables for the dimensions(row, column),
         string[,] wikiData = new string[entries, attributes];
         string defaultFileName = "definitions.dat";
         int pointer = 0;
-        
-        #region AddEditDelete
-        // 8.2	Create ADD and EDIT buttons that will store the information from the 4 text boxes into the 2D array,
+
+        // 8.2	Create an ADD button that will store the information from the 4 text boxes into the 2D array,
+        // an EDIT button that will modify the information in the array,
         // and a DELETE button that will remove items from the array
+        #region AddEditDelete
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddTerm();
@@ -122,10 +123,10 @@ namespace AssessmentOne
             TextBoxStructure.Clear();
             TextBoxDefinition.Clear();
         }
-        #region SortSwap
         // 8.4	Write the code for a Bubble Sort method to sort the 2D array by Name ascending,
         // ensure you use a separate swap method that passes (by reference) the array element to be swapped
         // (do not use any built-in array methods),
+        #region SortSwap
         private void SortArray()
         {
             for (int x = 1; x < pointer; x++)
@@ -159,11 +160,12 @@ namespace AssessmentOne
             DisplayNameCat();
         }
         #endregion SortSwap
-        #region Search
         // 8.5	Write the code for a Binary Search for the Name in the 2D array
         // and display the information in the other textboxes when found,
         // add suitable feedback if the search in not successful and clear the search textbox
         // (do not use any built-in array methods),
+        // A double mouse click in the search text box will clear the search input box,
+        #region Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             int startIndex = -1;
@@ -200,14 +202,15 @@ namespace AssessmentOne
                 TextBoxSearch.Clear();
             }
         }
-        // A double mouse click in the search text box will clear the search input box,
         private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
         {
             TextBoxSearch.Clear();
         }
         #endregion Search
-        #region Display
         // 8.6	Create a display method that will show the following information in a List box: Name and Category,
+        // 8.7	Create a method so the user can select a definition (Name) from the Listbox
+        // and all the information is displayed in the appropriate Textboxes,
+        #region Display
         private void DisplayNameCat()
         {
             ListBoxDisplay.Items.Clear();
@@ -217,8 +220,6 @@ namespace AssessmentOne
                 ListBoxDisplay.Items.Add(term);
             }
         }
-        // 8.7	Create a method so the user can select a definition (Name) from the Listbox
-        // and all the information is displayed in the appropriate Textboxes,
         private void ListBoxDisplay_MouseClick(object sender, MouseEventArgs e)
         {
             try
@@ -240,9 +241,11 @@ namespace AssessmentOne
             TextBoxDefinition.Text = wikiData[x, 3];
         }
         #endregion Display
-        #region FileIO
         // 8.8	Create a SAVE button so the information from the 2D array can be written into
         // a binary file called definitions.dat which is sorted by Name,
+        // 8.9	Create a LOAD button that will read the information
+        // from a binary file called definitions.dat into the 2D array,
+        #region FileIO
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveData = new SaveFileDialog
@@ -288,8 +291,6 @@ namespace AssessmentOne
                 MessageBox.Show(ex.ToString());
             }
         }
-        // 8.9	Create a LOAD button that will read the information
-        // from a binary file called definitions.dat into the 2D array,
         private void ButtonOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog openData = new OpenFileDialog
