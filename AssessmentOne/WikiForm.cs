@@ -58,6 +58,11 @@ namespace AssessmentOne
                     MessageBox.Show("Please make sure all boxes are filled");
                 }
             }
+            else
+            {
+                MessageBox.Show("The array is full");
+                ClearBoxes();
+            }
             DisplayNameCat();
         }
         private void ButtonEdit_Click(object sender, EventArgs e)
