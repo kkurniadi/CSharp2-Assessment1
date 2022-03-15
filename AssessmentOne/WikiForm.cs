@@ -47,6 +47,7 @@ namespace AssessmentOne
                         wikiData[pointer, 3] = TextBoxDefinition.Text;
                         pointer++;
                         ClearBoxes();
+                        DisplayNameCat();
                     }
                     catch
                     {
@@ -63,7 +64,6 @@ namespace AssessmentOne
                 MessageBox.Show("The array is full");
                 ClearBoxes();
             }
-            DisplayNameCat();
         }
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
