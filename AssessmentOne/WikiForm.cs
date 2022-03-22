@@ -274,10 +274,6 @@ namespace AssessmentOne
                     SaveFile(defaultFileName);
                 }
             }
-            else
-            {
-                return;
-            }
         }
         private void SaveFile(string saveFileName)
         {
