@@ -169,38 +169,45 @@ namespace AssessmentOne
         #region Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            int startIndex = -1;
-            int finalIndex = pointer;
-            bool found = false;
-            int foundIndex = -1;
-            while (!((finalIndex - startIndex) <= 1))
+            if (!string.IsNullOrWhiteSpace(TextBoxSearch.Text))
             {
-                int midIndex = (finalIndex + startIndex) / 2;
-                if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 0)
+                int startIndex = -1;
+                int finalIndex = pointer;
+                bool found = false;
+                int foundIndex = -1;
+                while (!((finalIndex - startIndex) <= 1))
                 {
-                    foundIndex = midIndex;
-                    found = true;
-                    break;
+                    int midIndex = (finalIndex + startIndex) / 2;
+                    if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 0)
+                    {
+                        foundIndex = midIndex;
+                        found = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 1)
+                            finalIndex = midIndex;
+                        else
+                            startIndex = midIndex;
+                    }
+                }
+                if (found)
+                {
+                    ListBoxDisplay.SelectedIndex = foundIndex;
+                    DisplayForOne(foundIndex);
                 }
                 else
                 {
-                    if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 1)
-                        finalIndex = midIndex;
-                    else
-                        startIndex = midIndex;
+                    MessageBox.Show("Not found");
+                    ListBoxDisplay.ClearSelected();
+                    ClearBoxes();
+                    TextBoxSearch.Clear();
                 }
-            }
-            if (found)
-            {
-                ListBoxDisplay.SelectedIndex = foundIndex;
-                DisplayForOne(foundIndex);
             }
             else
             {
-                MessageBox.Show("Not found");
-                ListBoxDisplay.ClearSelected();
-                ClearBoxes();
-                TextBoxSearch.Clear();
+                MessageBox.Show("Invalid search");
             }
         }
         private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
