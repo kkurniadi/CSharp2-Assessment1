@@ -261,6 +261,7 @@ namespace AssessmentOne
                 InitialDirectory = Application.StartupPath,
                 Filter = "DAT Files|*.dat",
                 Title = "Save file...",
+                FileName = defaultFileName,
                 DefaultExt = "dat"
             };
             if (saveData.ShowDialog() == DialogResult.OK)
@@ -268,10 +269,6 @@ namespace AssessmentOne
                 if (saveData.FileName != "")
                 {
                     SaveFile(saveData.FileName);
-                }
-                else
-                {
-                    SaveFile(defaultFileName);
                 }
             }
         }
