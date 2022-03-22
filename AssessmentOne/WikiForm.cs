@@ -266,10 +266,7 @@ namespace AssessmentOne
             };
             if (saveData.ShowDialog() == DialogResult.OK)
             {
-                if (saveData.FileName != "")
-                {
-                    SaveFile(saveData.FileName);
-                }
+                SaveFile(saveData.FileName);
             }
         }
         private void SaveFile(string saveFileName)
