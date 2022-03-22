@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Kirsten Kurniadi, ID: 30045816, 8/03/2022
+// Kirsten Kurniadi, ID: 30045816
+// Date: 22/03/2022
 // A program that stores wiki data in a two-dimensional array
 namespace AssessmentOne
 {
