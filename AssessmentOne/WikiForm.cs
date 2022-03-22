@@ -173,7 +173,7 @@ namespace AssessmentOne
             int finalIndex = pointer;
             bool found = false;
             int foundIndex = -1;
-            while (!false && !((finalIndex - startIndex) <= 1))
+            while (!((finalIndex - startIndex) <= 1))
             {
                 int newIndex = (finalIndex + startIndex) / 2;
                 if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 0)
