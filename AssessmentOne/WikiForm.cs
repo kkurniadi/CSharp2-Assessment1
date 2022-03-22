@@ -175,19 +175,19 @@ namespace AssessmentOne
             int foundIndex = -1;
             while (!((finalIndex - startIndex) <= 1))
             {
-                int newIndex = (finalIndex + startIndex) / 2;
-                if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 0)
+                int midIndex = (finalIndex + startIndex) / 2;
+                if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 0)
                 {
-                    foundIndex = newIndex;
+                    foundIndex = midIndex;
                     found = true;
                     break;
                 }
                 else
                 {
-                    if (string.Compare(wikiData[newIndex, 0], TextBoxSearch.Text) == 1)
-                        finalIndex = newIndex;
+                    if (string.Compare(wikiData[midIndex, 0], TextBoxSearch.Text) == 1)
+                        finalIndex = midIndex;
                     else
-                        startIndex = newIndex;
+                        startIndex = midIndex;
                 }
             }
             if (found)
