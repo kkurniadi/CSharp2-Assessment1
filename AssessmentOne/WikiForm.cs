@@ -258,23 +258,25 @@ namespace AssessmentOne
         {
             SaveFileDialog saveData = new SaveFileDialog
             {
+                InitialDirectory = Application.StartupPath,
                 Filter = "DAT Files|*.dat",
                 Title = "Save file...",
-                InitialDirectory = Application.StartupPath,
                 DefaultExt = "dat"
             };
-            saveData.ShowDialog();
-            string fileName = saveData.FileName;
             if (saveData.ShowDialog() == DialogResult.OK)
             {
-                if (fileName != "")
+                if (saveData.FileName != "")
                 {
-                    SaveFile(fileName);
+                    SaveFile(saveData.FileName);
                 }
                 else
                 {
                     SaveFile(defaultFileName);
                 }
+            }
+            else
+            {
+                return;
             }
         }
         private void SaveFile(string saveFileName)
