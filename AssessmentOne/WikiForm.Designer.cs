@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ButtonEdit = new System.Windows.Forms.Button();
             this.ButtonDelete = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ButtonOpen = new System.Windows.Forms.Button();
             this.ButtonSave = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // ButtonAdd
@@ -54,6 +56,7 @@
             this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.ButtonAdd.TabIndex = 0;
             this.ButtonAdd.Text = "Add";
+            this.toolTip1.SetToolTip(this.ButtonAdd, "Add a new term to be defined.");
             this.ButtonAdd.UseVisualStyleBackColor = true;
             this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
@@ -64,6 +67,7 @@
             this.ButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.ButtonEdit.TabIndex = 1;
             this.ButtonEdit.Text = "Edit";
+            this.toolTip1.SetToolTip(this.ButtonEdit, "Edit a pre-existing term.");
             this.ButtonEdit.UseVisualStyleBackColor = true;
             this.ButtonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
@@ -74,6 +78,7 @@
             this.ButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.ButtonDelete.TabIndex = 2;
             this.ButtonDelete.Text = "Delete";
+            this.toolTip1.SetToolTip(this.ButtonDelete, "Delete a term from the array.");
             this.ButtonDelete.UseVisualStyleBackColor = true;
             this.ButtonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
@@ -148,6 +153,7 @@
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(155, 20);
             this.TextBoxSearch.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.TextBoxSearch, "Double-click to clear.");
             this.TextBoxSearch.DoubleClick += new System.EventHandler(this.TextBoxSearch_DoubleClick);
             // 
             // ListBoxDisplay
@@ -157,6 +163,7 @@
             this.ListBoxDisplay.Name = "ListBoxDisplay";
             this.ListBoxDisplay.Size = new System.Drawing.Size(236, 199);
             this.ListBoxDisplay.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.ListBoxDisplay, "Double-click to sort");
             this.ListBoxDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxDisplay_MouseClick);
             this.ListBoxDisplay.DoubleClick += new System.EventHandler(this.ListBoxDisplay_DoubleClick);
             // 
@@ -167,6 +174,7 @@
             this.ButtonSearch.Size = new System.Drawing.Size(75, 23);
             this.ButtonSearch.TabIndex = 13;
             this.ButtonSearch.Text = "Search";
+            this.toolTip1.SetToolTip(this.ButtonSearch, "Search for data structures by name.");
             this.ButtonSearch.UseVisualStyleBackColor = true;
             this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
@@ -186,6 +194,7 @@
             this.ButtonOpen.Size = new System.Drawing.Size(75, 23);
             this.ButtonOpen.TabIndex = 15;
             this.ButtonOpen.Text = "Open";
+            this.toolTip1.SetToolTip(this.ButtonOpen, "Open a previously saved data file.");
             this.ButtonOpen.UseVisualStyleBackColor = true;
             this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
             // 
@@ -196,6 +205,7 @@
             this.ButtonSave.Size = new System.Drawing.Size(75, 23);
             this.ButtonSave.TabIndex = 16;
             this.ButtonSave.Text = "Save";
+            this.toolTip1.SetToolTip(this.ButtonSave, "Save the data to a binary file.");
             this.ButtonSave.UseVisualStyleBackColor = true;
             this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
@@ -247,6 +257,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ButtonOpen;
         private System.Windows.Forms.Button ButtonSave;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
