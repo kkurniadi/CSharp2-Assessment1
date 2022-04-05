@@ -88,6 +88,8 @@ namespace AssessmentOne
                         ClearBoxes();
                         StatusStrip.Text = "Entry edited";
                     }
+                    else
+                        StatusStrip.Text = "Editing cancelled";
                 }
                 else
                 {
@@ -116,6 +118,8 @@ namespace AssessmentOne
                     ClearBoxes();
                     StatusStrip.Text = "Entry deleted";
                 }
+                else
+                    StatusStrip.Text = "Deletion cancelled";
             }
         }
         #endregion AddEditDelete
