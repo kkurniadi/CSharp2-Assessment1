@@ -276,7 +276,6 @@ namespace AssessmentOne
             if (saveData.ShowDialog() == DialogResult.OK)
             {
                 SaveFile(saveData.FileName);
-                StatusStrip.Text = "Data has been saved";
             }
             else
                 StatusStrip.Text = "Cancelled saving the data";
@@ -297,6 +296,7 @@ namespace AssessmentOne
                         }
                     }
                 }
+                StatusStrip.Text = "Data has been saved";
             }
             catch (IOException ex)
             {
@@ -313,8 +313,7 @@ namespace AssessmentOne
             };
             if (openData.ShowDialog() == DialogResult.OK)
             {
-                OpenFile(openData.FileName);
-                StatusStrip.Text = "Opened data from file";
+                OpenFile(openData.FileName); 
             }
             else
                 StatusStrip.Text = "Cancelled file opening";
@@ -341,6 +340,7 @@ namespace AssessmentOne
                     pointer = ptr;
                     DisplayNameCat();
                 }
+                StatusStrip.Text = "Opened data from file";
             }
             catch (IOException ex)
             {
