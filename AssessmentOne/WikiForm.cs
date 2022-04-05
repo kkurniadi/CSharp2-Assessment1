@@ -51,20 +51,21 @@ namespace AssessmentOne
                         pointer++;
                         ClearBoxes();
                         DisplayNameCat();
+                        StatusStrip.Text = "Entry added";
                     }
                     catch
                     {
-                        MessageBox.Show("Could not add entry");
+                        StatusStrip.Text = "Could not add entry";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please make sure all boxes are filled");
+                    StatusStrip.Text = "Please make sure all boxes are filled";
                 }
             }
             else
             {
-                MessageBox.Show("The array is full");
+                StatusStrip.Text = "The array is full";
                 ClearBoxes();
             }
         }
@@ -85,11 +86,12 @@ namespace AssessmentOne
                         wikiData[index, 3] = TextBoxDefinition.Text;
                         DisplayNameCat();
                         ClearBoxes();
+                        StatusStrip.Text = "Entry edited";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please make sure all boxes are filled");
+                    StatusStrip.Text = "Please make sure all boxes are filled";
                 }
             }
         }
@@ -112,6 +114,7 @@ namespace AssessmentOne
                     pointer--;
                     DisplayNameCat();
                     ClearBoxes();
+                    StatusStrip.Text = "Entry deleted";
                 }
             }
         }
@@ -159,6 +162,7 @@ namespace AssessmentOne
             ClearBoxes();
             SortArray();
             DisplayNameCat();
+            StatusStrip.Text = "Data has been sorted";
         }
         #endregion SortSwap
         // 8.5	Write the code for a Binary Search for the Name in the 2D array
@@ -196,10 +200,11 @@ namespace AssessmentOne
                 {
                     ListBoxDisplay.SelectedIndex = foundIndex;
                     DisplayForOne(foundIndex);
+                    StatusStrip.Text = "Search successful";
                 }
                 else
                 {
-                    MessageBox.Show("Not found");
+                    StatusStrip.Text = "Not found";
                     ListBoxDisplay.ClearSelected();
                     ClearBoxes();
                     TextBoxSearch.Clear();
@@ -207,7 +212,7 @@ namespace AssessmentOne
             }
             else
             {
-                MessageBox.Show("Invalid search");
+                StatusStrip.Text = "Invalid search";
             }
         }
         private void TextBoxSearch_DoubleClick(object sender, EventArgs e)
@@ -267,7 +272,10 @@ namespace AssessmentOne
             if (saveData.ShowDialog() == DialogResult.OK)
             {
                 SaveFile(saveData.FileName);
+                StatusStrip.Text = "Data has been saved";
             }
+            else
+                StatusStrip.Text = "Cancelled saving the data";
         }
         private void SaveFile(string saveFileName)
         {
@@ -288,7 +296,7 @@ namespace AssessmentOne
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.ToString());
+                StatusStrip.Text = ex.ToString();
             }
         }
         private void ButtonOpen_Click(object sender, EventArgs e)
@@ -302,7 +310,10 @@ namespace AssessmentOne
             if (openData.ShowDialog() == DialogResult.OK)
             {
                 OpenFile(openData.FileName);
+                StatusStrip.Text = "Opened data from file";
             }
+            else
+                StatusStrip.Text = "Cancelled file opening";
         }
         private void OpenFile(string openFileName)
         {
@@ -329,7 +340,7 @@ namespace AssessmentOne
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.ToString());
+                StatusStrip.Text = ex.ToString();
             }
         }
         #endregion FileIO
